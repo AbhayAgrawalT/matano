@@ -14,7 +14,7 @@ steps:
     sudo apt update -y
     sudo apt install npm
     sudo apt install make
-    sudo curl https://sh.rustup.rs -sSf | sh
+    sudo apt install cargo -y
 
   displayName: 'Install Dependency'
 
