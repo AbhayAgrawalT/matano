@@ -12,15 +12,14 @@ pool:
 steps:
 - script: |
     sudo apt update -y
-    
-    # sudo apt install npm
+    sudo apt install npm
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y
     # sudo apt install rustc
     # sudo apt install cargo -y
-    # sudo snap install zig --beta --classic
+    sudo snap install zig --beta --classic
     # sudo cargo install cargo-lambda --locked
-    # sudo cargo --list
-    sudo rustc --version
+    sudo cargo --list
+    # sudo rustc --version
 
 
   displayName: 'Install Dependency'
