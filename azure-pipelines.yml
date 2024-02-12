@@ -29,7 +29,7 @@ steps:
     sudo ls
   displayName: 'Build Matano'
 
-# - script: |
-#     sudo make package
-#     sudo ls
-#   displayName: 'Build Matano'
+- script: |
+    sudo make package
+    sudo ls
+  displayName: 'Build Matano'
