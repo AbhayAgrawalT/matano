@@ -28,7 +28,6 @@ steps:
     script: |
       sudo source "$HOME/.cargo/env"
       sudo cargo --list
-=
 
 # - script: |
 #     sudo make package
