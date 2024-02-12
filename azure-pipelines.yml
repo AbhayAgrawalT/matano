@@ -11,6 +11,9 @@ pool:
 
 steps:
 - script: |
-    apt update -y
-    apt install npm
+    sudo apt update -y
+    sudo apt install npm
+    sudo apt install make
+    sudo pwd
+    sudo ls
   displayName: 'Build Matano'
