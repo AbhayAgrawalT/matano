@@ -15,7 +15,8 @@ steps:
     sudo apt install npm
     sudo apt install make
     sudo apt install cargo -y
-    sudo apt install zig
+    sudo apt install snapd
+    sudo snap install zig --beta --classic
 
 
   displayName: 'Install Dependency'
