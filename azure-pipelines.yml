@@ -22,7 +22,6 @@ steps:
       sudo snap install zig --beta --classic
       # sudo cargo install cargo-lambda
       # sudo rustc --version
-  displayName: 'Install Dependency'
 - task: Bash@3
   inputs:
     targetType: 'inline'
