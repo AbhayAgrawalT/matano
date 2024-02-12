@@ -18,11 +18,15 @@ steps:
     # sudo apt install cargo -y
     sudo snap install zig --beta --classic
     # sudo cargo install cargo-lambda --locked
-    sudo cargo --list
     # sudo rustc --version
 
 
   displayName: 'Install Dependency'
+
+- script: |
+    sudo cargo --list
+    sudo ls
+  displayName: 'Build Matano'
 
 # - script: |
 #     sudo make package
