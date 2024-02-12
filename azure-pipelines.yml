@@ -18,7 +18,7 @@ steps:
       sudo apt install npm
       curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y
       # sudo apt install rustc
-      # sudo apt install cargo -y
+      sudo apt install cargo -y
       sudo snap install zig --beta --classic
       # sudo cargo install cargo-lambda
       # sudo rustc --version
