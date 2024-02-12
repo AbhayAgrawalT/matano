@@ -20,7 +20,7 @@ steps:
     # sudo snap install zig --beta --classic
     # sudo cargo install cargo-lambda --locked
     sudo cargo --list
-    sudo rustup update
+    sudo cargo update rustc
     sudo rustc --version
 
 
