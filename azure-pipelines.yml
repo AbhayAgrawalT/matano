@@ -10,24 +10,26 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: |
-    sudo apt update -y
-    sudo apt install npm
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y
-    # sudo apt install rustc
-    # sudo apt install cargo -y
-    sudo snap install zig --beta --classic
-    # sudo cargo install cargo-lambda
-    # sudo rustc --version
-
-
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      sudo apt update -y
+      # sudo apt install npm
+      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y
+      # sudo apt install rustc
+      # sudo apt install cargo -y
+      sudo snap install zig --beta --classic
+      # sudo cargo install cargo-lambda
+      # sudo rustc --version
   displayName: 'Install Dependency'
-
-- script: |
-    source "$HOME/.cargo/env"
-    sudo cargo --list
-    sudo ls
-  displayName: 'Build Matano'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      sudo source "$HOME/.cargo/env"
+      sudo cargo --list
+=
 
 # - script: |
 #     sudo make package
