@@ -26,9 +26,9 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      sudo source "$HOME/.cargo/env"
+      source "$HOME/.cargo/env"
       # sudo cargo install cargo-lambda
-      sudo cargo --list
+      cargo --list
 
 # - task: Bash@3
 #   inputs:
