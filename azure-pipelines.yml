@@ -12,13 +12,10 @@ pool:
 steps:
 - script: |
     sudo apt update -y
-    sudo apt install npm
-    sudo apt install make
+    # sudo apt install npm
     sudo apt install cargo -y
-    sudo apt install snapd
     sudo snap install zig --beta --classic
-    sudo rustup install 1.74
-    sudo cargo install cargo-lambda
+    sudo cargo install cargo-lambda --locked
     sudo cargo --list
 
 
