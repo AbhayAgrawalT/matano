@@ -12,13 +12,15 @@ pool:
 steps:
 - script: |
     sudo apt update -y
+    
     # sudo apt install npm
-    sudo curl https://sh.rustup.rs -sSf | sh 
+    # sudo curl https://sh.rustup.rs -sSf | sh 
     
     sudo apt install cargo -y
     # sudo snap install zig --beta --classic
     # sudo cargo install cargo-lambda --locked
     sudo cargo --list
+    sudo rustup update
     sudo rustc --version
 
 
