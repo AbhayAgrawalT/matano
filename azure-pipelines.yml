@@ -14,11 +14,12 @@ steps:
     sudo apt update -y
     # sudo apt install npm
     sudo curl https://sh.rustup.rs -sSf | sh 
-    sudo rustc --version
+    
     sudo apt install cargo -y
     # sudo snap install zig --beta --classic
     # sudo cargo install cargo-lambda --locked
     sudo cargo --list
+    sudo rustc --version
 
 
   displayName: 'Install Dependency'
