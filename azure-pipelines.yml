@@ -14,8 +14,8 @@ steps:
     sudo apt update -y
     
     # sudo apt install npm
-    # sudo curl https://sh.rustup.rs -sSf | sh 
-    sudo apt install rustc
+    sudo curl https://sh.rustup.rs -sSf -y | sh 
+    # sudo apt install rustc
     # sudo apt install cargo -y
     # sudo snap install zig --beta --classic
     # sudo cargo install cargo-lambda --locked
