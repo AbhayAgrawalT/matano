@@ -17,7 +17,7 @@ steps:
     sudo apt install cargo -y
     sudo apt install snapd
     sudo snap install zig --beta --classic
-    sudo rustup update
+    sudo rustup install 1.74
     sudo cargo install cargo-lambda
     sudo cargo --list
 
