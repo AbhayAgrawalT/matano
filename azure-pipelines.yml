@@ -27,7 +27,7 @@ steps:
     targetType: 'inline'
     script: |
       # source "$HOME/.cargo/env"
-      sudo sh -c 'source "$HOME/.cargo/env"'
+      sudo sh -c '. "$HOME/.cargo/env"'
       # sudo cargo install cargo-lambda
       sudo cargo --list
 
