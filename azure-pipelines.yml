@@ -24,7 +24,7 @@ steps:
   displayName: 'Install Dependency'
 
 - script: |
-    sudo source "$HOME/.cargo/env"
+    source "$HOME/.cargo/env"
     sudo cargo --list
     sudo ls
   displayName: 'Build Matano'
