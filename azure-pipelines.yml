@@ -27,6 +27,7 @@ steps:
     targetType: 'inline'
     script: |
       source "$HOME/.cargo/env"
+      cargo install cargo-lambda
       cargo --list
 
 # - script: |
