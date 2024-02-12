@@ -15,11 +15,11 @@ steps:
     targetType: 'inline'
     script: |
       sudo apt update -y
-      # sudo apt install npm
+      sudo apt install npm
       sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y
       # sudo apt install rustc
       # sudo apt install cargo -y
-      # sudo snap install zig --beta --classic
+      sudo snap install zig --beta --classic
       # sudo cargo install cargo-lambda
       # sudo rustc --version
       source "$HOME/.cargo/env"
@@ -29,7 +29,7 @@ steps:
     script: |
       # source "$HOME/.cargo/env"
       # sudo sh -c '. "$HOME/.cargo/env"'
-      # sudo cargo install cargo-lambda
+      cargo install cargo-lambda
       cargo --list
 
 - task: Bash@3
