@@ -10,46 +10,54 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-# - task: Bash@3
-#   inputs:
-#     targetType: 'inline'
-#     script: |
-#       sudo apt update -y
-#       sudo apt install npm
-#       sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y
-#       # sudo apt install rustc
-#       # sudo apt install cargo -y
-#       sudo snap install zig --beta --classic
-#       # sudo cargo install cargo-lambda
-#       # sudo rustc --version
-#       source "$HOME/.cargo/env"
-# - task: Bash@3
-#   inputs:
-#     targetType: 'inline'
-#     script: |
-#       # source "$HOME/.cargo/env"
-#       # sudo sh -c '. "$HOME/.cargo/env"'
-#       cargo install cargo-lambda
-#       cargo --list
-
 - task: Bash@3
+  displayName: 'Installing Node'
   inputs:
     targetType: 'inline'
     script: |
-      # make package
+      sudo apt update -y
+      sudo apt install npm
+      
+- task: Bash@3
+  displayName: 'Installing Rust'
+  inputs:
+    targetType: 'inline'
+    script: |
+      sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y
+      source "$HOME/.cargo/env"
+- task: Bash@3
+  displayName: 'Installing Zig'
+  inputs:
+    targetType: 'inline'
+    script: |
+      sudo snap install zig --beta --classic
+- task: Bash@3
+  displayName: 'Installing Cargo Lambda'
+  inputs:
+    targetType: 'inline'
+    script: |
+      cargo install cargo-lambda
+
+- task: Bash@3
+  displayName: 'Creating Release file'
+  inputs:
+    targetType: 'inline'
+    script: |
+      make package
       ls $(System.DefaultWorkingDirectory)
 
-# - task: GitHubRelease@1
-#   inputs:
-#     gitHubConnection: 'AbhayAgrawalT'
-#     repositoryName: 'AbhayAgrawalT/matano'
-#     action: 'create'
-#     target: '$(Build.SourceVersion)'
-#     tagSource: 'gitTag'
-#     title: 'Test'
-#     assets: '$(Build.ArtifactStagingDirectory)/*.sh'
-#     changeLogCompareToRelease: 'lastFullRelease'
-#     changeLogType: 'commitBased'
+- task: GitHubRelease@1
+  displayName: 'Publishing release'
+  inputs:
+    gitHubConnection: 'AbhayAgrawalT'
+    repositoryName: 'AbhayAgrawalT/matano'
+    action: 'create'
+    target: '$(Build.SourceVersion)'
+    tagSource: 'gitTag'
+    title: 'Test'
+    assets: '$(System.DefaultWorkingDirectory)/*.sh'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
 # - script: |
 #     sudo make package
 #     sudo ls
