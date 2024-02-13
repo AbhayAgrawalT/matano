@@ -10,40 +10,40 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-# - task: Bash@3
-#   displayName: 'Installing Node'
-#   inputs:
-#     targetType: 'inline'
-#     script: |
-#       sudo apt update -y
-#       sudo apt install npm
+- task: Bash@3
+  displayName: 'Installing Node'
+  inputs:
+    targetType: 'inline'
+    script: |
+      sudo apt update -y
+      sudo apt install npm
       
-# - task: Bash@3
-#   displayName: 'Installing Rust'
-#   inputs:
-#     targetType: 'inline'
-#     script: |
-#       sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y
-#       source "$HOME/.cargo/env"
-# - task: Bash@3
-#   displayName: 'Installing Zig'
-#   inputs:
-#     targetType: 'inline'
-#     script: |
-#       sudo snap install zig --beta --classic
-# - task: Bash@3
-#   displayName: 'Installing Cargo Lambda'
-#   inputs:
-#     targetType: 'inline'
-#     script: |
-#       cargo install cargo-lambda
+- task: Bash@3
+  displayName: 'Installing Rust'
+  inputs:
+    targetType: 'inline'
+    script: |
+      sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain stable -y
+      source "$HOME/.cargo/env"
+- task: Bash@3
+  displayName: 'Installing Zig'
+  inputs:
+    targetType: 'inline'
+    script: |
+      sudo snap install zig --beta --classic
+- task: Bash@3
+  displayName: 'Installing Cargo Lambda'
+  inputs:
+    targetType: 'inline'
+    script: |
+      cargo install cargo-lambda
 
 - task: Bash@3
   displayName: 'Creating Release file'
   inputs:
     targetType: 'inline'
     script: |
-      # make package
+      make package
       ls $(System.DefaultWorkingDirectory)
 
 - task: GitHubRelease@1
@@ -56,7 +56,7 @@ steps:
     tagSource: 'userSpecifiedTag'
     tag: 'v1.0.0'
     title: 'Test'
-    assets: '$(System.DefaultWorkingDirectory)/*.yml'
+    assets: '$(System.DefaultWorkingDirectory)/*.sh'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
 # - script: |
